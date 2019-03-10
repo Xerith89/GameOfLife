@@ -13,7 +13,7 @@ public class Main extends Application {
     
     private static final int WINDOWWIDTH = 700;
     private static final int WINDOWHEIGHT = 500;
-    private static final int FRAMERATE = 10000000;
+    private static final int FRAMERATE = 1000000;
 
     Game game;
     

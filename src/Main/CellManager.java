@@ -72,7 +72,7 @@ public final class CellManager {
                 for (int j = startx; j < endx; j+=cam.getCellDimensions())
                 {
                     deadCells.add(new Cell(j,i,false));
-                    for (Cell c: cells)
+                    for (Cell c: cellBuffer)
                     {
                         if (c.getX()==j && c.getY() == i )
                         {
@@ -119,7 +119,6 @@ public final class CellManager {
             canPress = false;
             timer+=0.5f;
             scene.addEventFilter(KeyEvent.ANY, keyEvent -> {
-            if (null != keyEvent.getCode()) 
                 switch (keyEvent.getCode()) {
                     case DOWN:
                         cells.forEach((c) -> {

@@ -22,7 +22,7 @@ public class Game {
         this.gc = gc;
         this.cellDimensions = cellDimensions;
         cam = new Camera(0,0,getWindowWidth(),getWindowHeight(),cellDimensions, scene);
-        grid = new Grid(cam);
+        grid = new Grid();
         cMan = new CellManager(cam);
         rand = new Randomiser(getWindowWidth(),getWindowHeight(), cam.getCellDimensions());
         rules = new Rules(cMan);
@@ -37,17 +37,17 @@ public class Game {
     
     private void update()
     { 
-        cam.updateCamera(cMan);
         rules.underpopulation();
         rules.overcrowding();
         rules.creation();
         cMan.swap();   
+        cam.updateCamera(cMan);
     }
     
     private void render()
     {
         clearScreen(gc);
-        grid.renderGrid(gc);
+        grid.renderGrid(gc,cam);
         cMan.renderCells(gc);
     }
     
@@ -57,7 +57,7 @@ public class Game {
         render();
     }
     
-    public void clearScreen(GraphicsContext gc)
+    private void clearScreen(GraphicsContext gc)
     {
         gc.clearRect(cam.getStartX(), cam.getStartY(), Main.getWindowWidth(), Main.getWindowHeight());
     }

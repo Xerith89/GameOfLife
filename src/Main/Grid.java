@@ -5,14 +5,13 @@ import javafx.scene.paint.Color;
 
 public class Grid {
     
-    Camera cam;
+    
      
-    Grid(Camera cam)
+    Grid()
     {
-        this.cam = cam;
     }
              
-    public void renderGrid(GraphicsContext gc)
+    public void renderGrid(GraphicsContext gc, Camera cam)
     { 
         for (int i = cam.getStartX(); i <= cam.getEndX(); i++)
         {
